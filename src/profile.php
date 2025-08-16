@@ -85,7 +85,7 @@ $isOwnProfile = isset($_SESSION['username']) && $usr_dat['username'] === $_SESSI
     <table class="PineconiumLogoSector">
         <thead>
             <tr>
-                <th><img src="images/header.gif"></th>
+                <th><img src="images/header.png"></th>
             </tr>
         </thead>
         <tbody>

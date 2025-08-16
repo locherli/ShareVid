@@ -72,7 +72,7 @@ if(isset($_POST['username'])){
         <table class="PineconiumLogoSector">
           <thead>
             <tr>
-              <th><img src="images/header.gif"></th>
+              <th><img src="images/header.png"></th>
             </tr>
           </thead>
           <tbody>

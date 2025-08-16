@@ -25,10 +25,13 @@ if ($vid_id === null) {
     exit();
 }
 
-$vid_query = "SELECT videos.*, users.username, users.backgroundpath 
-               FROM videos 
-               JOIN users ON videos.user_id = users.id 
-               WHERE videos.id='$vid_id'";
+
+$vid_query = "SELECT videos.*, users.username, users.backgroundpath,
+              (SELECT COUNT(*) FROM likes WHERE video_id = videos.id AND type = 'like') as likes,
+              (SELECT COUNT(*) FROM likes WHERE video_id = videos.id AND type = 'dislike') as dislikes
+              FROM videos 
+              JOIN users ON videos.user_id = users.id 
+              WHERE videos.id='$vid_id'";
 $vid_result = mysqli_query($con, $vid_query);
 
 if (mysqli_num_rows($vid_result) == 0) {
@@ -66,7 +69,7 @@ $simi_result = mysqli_query($con, $simi_query);
 </head>
 
 <!-- Make the background match the users profile background, akin to what old YouTube is like. -->
-<body style="background: url('/usergen/img/backgrounds/<?php echo htmlspecialchars($vid_data['user_id']); ?>.png') no-repeat center center fixed; background-size: cover;">
+<body style="background-color: #000000;">
     <!-- Header and Navigation control -->
     <table class="PineconiumLogoSector">
         <thead>
