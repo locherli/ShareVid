@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 ini_set('display_errors', 1);
@@ -115,9 +114,9 @@ $isOwnProfile = isset($_SESSION['username']) && $usr_dat['username'] === $_SESSI
                                background-repeat: no-repeat;">
                         <div class="profile-info">
                             <div class="profile-picture">
-                                <img src="<?php
-                                echo !empty($usr_dat['id']) ? '/usergen/img/pfp/' . htmlspecialchars($usr_dat['id']) . '.png' : '/images/default_pfp.png';
-                                ?>" width="72px" height="72px" alt="Profile Picture">
+                                <img src="<?php echo htmlspecialchars($usr_dat['id']) . '.png'; ?>" width="72"
+                                    height="72" alt="Profile Picture"
+                                    onerror="this.src='/images/default_pfp.png'; this.onerror=null;">
                             </div>
                             <h1 class="profile-username"><?php echo htmlspecialchars($usr_dat['username']); ?></h1>
                             <p class="profile-joined">Joined:
