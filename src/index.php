@@ -115,7 +115,6 @@ $RandomVidResult = $con->query($videoQuery);
           <div class="navbar">
             <div class="nav-links">
               <a href="index.php">Home Page</a>
-              <!-- <a href="about.html">About Open</a> -->
               <a href="tos.html">Terms of Service</a>
             </div>
             <div class="nav-actions">
