@@ -62,7 +62,9 @@ CREATE TABLE likes (
     type ENUM('like', 'dislike') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (video_id) REFERENCES videos(id),
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    UNIQUE KEY unique_like (video_id, user_id)
 );
 ```
+
 You'll also need to replace the placeholder fields in `db.php` to match the database's information. Once that is done, try going to the page and registering an account. If you can successfully access the main page and be logged in, then you are nearly ready to start hosting your own shareVid! If you can't, or can only access one part with little to no problems, check on both your SQL database as well as `db.php`.

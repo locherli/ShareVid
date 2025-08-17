@@ -25,6 +25,56 @@ if ($vid_id === null) {
     exit();
 }
 
+// Handle like/dislike POST requests
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $user_query = "SELECT id FROM users WHERE username = ?";
+    $stmt = mysqli_prepare($con, $user_query);
+    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_execute($stmt);
+    $user_result = mysqli_stmt_get_result($stmt);
+    if ($user_row = mysqli_fetch_assoc($user_result)) {
+        $user_id = $user_row['id'];
+        $type = null;
+        if (isset($_POST['like'])) {
+            $type = 'like';
+        } elseif (isset($_POST['dislike'])) {
+            $type = 'dislike';
+        }
+        if ($type) {
+            // Check if already exists
+            $check_query = "SELECT type FROM likes WHERE video_id = ? AND user_id = ?";
+            $check_stmt = mysqli_prepare($con, $check_query);
+            mysqli_stmt_bind_param($check_stmt, "ii", $vid_id, $user_id);
+            mysqli_stmt_execute($check_stmt);
+            $check_result = mysqli_stmt_get_result($check_stmt);
+            if ($check_row = mysqli_fetch_assoc($check_result)) {
+                if ($check_row['type'] === $type) {
+                    // Already same, remove (toggle off)
+                    $delete_query = "DELETE FROM likes WHERE video_id = ? AND user_id = ?";
+                    $delete_stmt = mysqli_prepare($con, $delete_query);
+                    mysqli_stmt_bind_param($delete_stmt, "ii", $vid_id, $user_id);
+                    mysqli_stmt_execute($delete_stmt);
+                } else {
+                    // Different, update to new type
+                    $update_query = "UPDATE likes SET type = ? WHERE video_id = ? AND user_id = ?";
+                    $update_stmt = mysqli_prepare($con, $update_query);
+                    mysqli_stmt_bind_param($update_stmt, "sii", $type, $vid_id, $user_id);
+                    mysqli_stmt_execute($update_stmt);
+                }
+            } else {
+                // Insert new
+                $insert_query = "INSERT INTO likes (video_id, user_id, type) VALUES (?, ?, ?)";
+                $insert_stmt = mysqli_prepare($con, $insert_query);
+                mysqli_stmt_bind_param($insert_stmt, "iis", $vid_id, $user_id, $type);
+                mysqli_stmt_execute($insert_stmt);
+            }
+        }
+    }
+    // Redirect to prevent form resubmission and refresh counts
+    header("Location: video.php?id=" . $vid_id);
+    exit();
+}
 
 $vid_query = "SELECT videos.*, users.username, users.backgroundpath,
               (SELECT COUNT(*) FROM likes WHERE video_id = videos.id AND type = 'like') as likes,
@@ -83,7 +133,6 @@ $simi_result = mysqli_query($con, $simi_query);
                     <div class="navbar">
                         <div class="nav-links">
                             <a href="index.php">Home Page</a>
-                            <a href="about.html">About Open</a>
                             <a href="tos.html">Terms of Service</a>
                         </div>
                         <div class="nav-actions">
@@ -130,16 +179,30 @@ $simi_result = mysqli_query($con, $simi_query);
                                     </video>
                                     <table class="TopStatusArea">
                                         <!-- TODO: Make like and dislike icons and fix stuff regarding the like counter-->
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <?php echo htmlspecialchars($vid_data['views']); ?> views - 
-                                                    <button>Like</button> <?php echo htmlspecialchars($vid_data['likes']); ?> like(s) - 
-                                                    <button>Dislike</button> <?php echo htmlspecialchars($vid_data['dislikes']); ?> dislike(s)<br>
-                                                    <h3>Description</h3>
-                                                </td>
-                                            </tr>
-                                        </thead>
+<thead>
+    <tr>
+        <td>
+            <?php echo htmlspecialchars($vid_data['views']); ?> views - 
+            <?php if (isset($_SESSION['username'])): ?>
+            <form method="POST" action="video.php?id=<?php echo $vid_id; ?>" style="display: inline;">
+                <button type="submit" name="like">Like</button> 
+            </form>
+            <?php else: ?>
+            <button disabled>Like (Login required)</button>
+            <?php endif; ?>
+            <?php echo htmlspecialchars($vid_data['likes']); ?> like(s) - 
+            <?php if (isset($_SESSION['username'])): ?>
+            <form method="POST" action="video.php?id=<?php echo $vid_id; ?>" style="display: inline;">
+                <button type="submit" name="dislike">Dislike</button> 
+            </form>
+            <?php else: ?>
+            <button disabled>Dislike (Login required)</button>
+            <?php endif; ?>
+            <?php echo htmlspecialchars($vid_data['dislikes']); ?> dislike(s)<br>
+            <h3>Description</h3>
+        </td>
+    </tr>
+</thead>
                                         <tbody>
                                             <tr>
                                                 <td>
@@ -226,4 +289,3 @@ $simi_result = mysqli_query($con, $simi_query);
     </table>
 </body>
 </html>
-

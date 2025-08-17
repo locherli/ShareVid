@@ -1,13 +1,3 @@
-<!-- 
-* Open Video Hosting Project Main Page
-* Version: 10e (August 7th 2024)
-*
-* Note that some stuff such as donation and database control either have empty or placeholder values.
-* It is up to the hoster of this Open page to control how these work and will need to fill in these
-* values with their correct data. See HOSTING.MD for more information.
-*
-* Originally written by Daniel B. (better known as Pineconium) ;-)
--->
 
 <?php
 session_start();

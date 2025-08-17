@@ -653,11 +653,7 @@ table.UpdatesSect tfoot td {
 
 /* Form styling */
 form {
-	background: #1e1e1e;
-	padding: 25px;
-	border-radius: 8px;
-	border: 1px solid #333333;
-	margin: 20px 0;
+
 }
 
 form input[type="text"],
