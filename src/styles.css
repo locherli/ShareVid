@@ -22,10 +22,6 @@ a:visited {
 	border-bottom: 1px solid transparent;
 }
 
-a:hover {
-
-}
-
 a:link.no_under,
 a:visited.no_under {
 	text-decoration: none;
@@ -158,6 +154,8 @@ a:hover.footer {
 
 .title-container img {
 	margin-right: 15px;
+	background-color: #0d47a1;
+	border-radius: 5px;
 }
 
 /* - END COMMON PINECONIUM CSS STUFF - */
@@ -398,8 +396,6 @@ div.desc {
 	object-fit: cover;
 	/* 保持比例并填充整个区域 */
 	border-radius: 5px;
-	/* 圆形头像 */
-	background-color: #1565c0;
 	padding: 5px;
 	/* 减小内边距 */
 	display: inline-block;
@@ -453,6 +449,10 @@ table.PineconiumLogoSector thead th {
 	background: rgba(20, 20, 20, 0.9);
 }
 
+table.PineconiumLogoSector thead th img {
+	width: 35vw;
+}
+
 table.PineconiumLogoSector thead th:first-child {
 	border-left: none;
 }
@@ -461,21 +461,8 @@ table.PineconiumLogoSector tfoot td {
 	font-size: 14px;
 }
 
-table.PineconiumLogoSector tfoot .links a {
-	display: inline-block;
-	background: #4fc3f7;
-	color: #000000;
-	padding: 6px 12px;
-	border-radius: 4px;
-	font-weight: 600;
-	text-decoration: none;
-	transition: all 0.3s ease;
-}
 
-table.PineconiumLogoSector tfoot .links a:hover {
-	background: #29b6f6;
-	transform: translateY(-1px);
-}
+
 
 /* Top Status Area */
 table.TopStatusArea {
@@ -537,29 +524,9 @@ table.TopStatusArea thead th:first-child {
 	border-left: none;
 }
 
-table.TopStatusArea tfoot td {
-	font-size: 14px;
-}
 
-table.TopStatusArea tfoot .links {
-	text-align: right;
-}
 
-table.TopStatusArea tfoot .links a {
-	display: inline-block;
-	background: #4fc3f7;
-	color: #000000;
-	padding: 8px 15px;
-	border-radius: 4px;
-	font-weight: 600;
-	text-decoration: none;
-	transition: all 0.3s ease;
-}
 
-table.TopStatusArea tfoot .links a:hover {
-	background: #29b6f6;
-	transform: translateY(-1px);
-}
 
 table.TopStatusArea th,
 table.TopStatusArea td {
@@ -619,29 +586,7 @@ table.PineconiumTabNav thead th:first-child {
 	border-left: none;
 }
 
-table.PineconiumTabNav tfoot td {
-	font-size: 14px;
-}
 
-table.PineconiumTabNav tfoot .links {
-	text-align: right;
-}
-
-table.PineconiumTabNav tfoot .links a {
-	display: inline-block;
-	background: #4fc3f7;
-	color: #000000;
-	padding: 8px 15px;
-	border-radius: 4px;
-	font-weight: 600;
-	text-decoration: none;
-	transition: all 0.3s ease;
-}
-
-table.PineconiumTabNav tfoot .links a:hover {
-	background: #29b6f6;
-	transform: translateY(-1px);
-}
 
 /* Updates Table */
 table.UpdatesSect {
@@ -691,13 +636,7 @@ table.UpdatesSect thead th:first-child {
 	border-left: none;
 }
 
-table.UpdatesSect tfoot {
-	font-size: 14px;
-	font-weight: 600;
-	color: #ffffff;
-	background: linear-gradient(135deg, #2d2d2d 0%, #3d3d3d 50%, #2d2d2d 100%);
-	border-top: 2px solid #444444;
-}
+
 
 table.UpdatesSect tfoot td {
 	font-size: 14px;

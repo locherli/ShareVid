@@ -71,7 +71,6 @@ if(isset($_POST['username'])){
                 <div class="navbar">
                   <div class="nav-links">
                       <a href="index.php">Home Page</a>
-                      <a href="about.html">About Open</a>
                       <a href="tos.html">Terms of Service</a>
                   </div>
                   <div class="nav-actions">
@@ -91,8 +90,8 @@ if(isset($_POST['username'])){
           <tbody>
             <tr>
               <td>
-                <h1 class="loginpage_title">Login to Open...</h1>
-                <p class="loginpage_text">Sign in here to login to your Open account. Don't have one? Why not register?</p>
+                <h1 class="loginpage_title">Login</h1>
+                <p class="loginpage_text">Sign in here to login to your account. Don't have one? Why not register?</p>
                 <form name="login" action="" method="post">
                   <input type="text" name="username" placeholder="Username" required />
                   <input type="password" name="password" placeholder="Password" required />
@@ -103,12 +102,7 @@ if(isset($_POST['username'])){
             </tr>
           </table>
           <table class="UpdatesSect">
-            <!-- Footer -->
-            <tfoot>
-              <tr>
-                  <td><p class="footerText">&copy; Pineconium 2024. All rights reserved. Powered by OpenViHo version 10a</p></td>
-              </tr>
-              </tfoot>
+
           </table>
     </body>
 </html>

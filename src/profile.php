@@ -71,7 +71,6 @@ $isOwnProfile = isset($_SESSION['username']) && $usr_dat['username'] === $_SESSI
     <!-- Re-add a feature YouTube once had but decided to remove, that being profile backgrounds! -->
     <style>
         body {
-            background-image: url('<?php echo $usr_dat['backgroundpath'] ? htmlspecialchars($usr_dat['backgroundpath']) : 'default_background.png'; ?>');
             background-color: #0a0a0a;
             /* 添加黑色背景作为后备 */
         }
@@ -120,16 +119,20 @@ $isOwnProfile = isset($_SESSION['username']) && $usr_dat['username'] === $_SESSI
         <tbody>
             <tr>
                 <td>
-                    <div class="profile-header"
-                        style="background-image: url('<?php echo htmlspecialchars($usr_dat['bannerpath'] ?? 'images/default_banner.png'); ?>');">
+                    <div class="profile-header" style="background-image: url('<?php echo htmlspecialchars($usr_dat['bannerpath'] ?? 'images/default_banner.png'); ?>'); 
+                               background-size: cover; 
+                               background-position: center; 
+                               background-repeat: no-repeat;">
                         <div class="profile-info">
                             <div class="profile-picture">
-                                <img src="/usergen/img/pfp/<?php echo htmlspecialchars($usr_dat['id']); ?>.png"
-                                    width="72px" height="72px" alt="Profile Picture">
+                                <img src="<?php
+                                echo !empty($usr_dat['id']) ? '/usergen/img/pfp/' . htmlspecialchars($usr_dat['id']) . '.png' : '/images/default_pfp.png';
+                                ?>" width="72px" height="72px" alt="Profile Picture">
                             </div>
                             <h1 class="profile-username"><?php echo htmlspecialchars($usr_dat['username']); ?></h1>
                             <p class="profile-joined">Joined:
-                                <?php echo date('F j, Y', strtotime($usr_dat['trn_date'])); ?></p>
+                                <?php echo date('F j, Y', strtotime($usr_dat['trn_date'])); ?>
+                            </p>
                             <?php if ($isOwnProfile): ?>
                                 <button onclick="window.location.href='customize.php'">Customize avatar!</button>
                             <?php else: ?>
@@ -151,20 +154,22 @@ $isOwnProfile = isset($_SESSION['username']) && $usr_dat['username'] === $_SESSI
                                 <?php while ($row = $vid_result->fetch_assoc()): ?>
                                     <tr>
                                         <td>
-                                            <div class="video-container">
-                                                <div class="video-thumbnail">
-                                                    <img src="<?php echo htmlspecialchars($row['thumbnailpath']); ?>"
-                                                        alt="Thumbnail">
-                                                </div>
-                                                <div class="video-details">
-                                                    <div class="video-title"><?php echo htmlspecialchars($row['title']); ?>
+                                            <a href="video.php?id=<?php echo $row['id']; ?>" class="video-container-link">
+                                                <div class="video-container">
+                                                    <div class="video-thumbnail">
+                                                        <img src="<?php echo htmlspecialchars($row['thumbnailpath']); ?>"
+                                                            alt="Thumbnail">
                                                     </div>
-                                                    <div class="video-info">
-                                                        <?php echo htmlspecialchars($row['views'] ?? '0'); ?> views /
-                                                        <?php echo htmlspecialchars($row['duration'] ?? '0'); ?> mins
+                                                    <div class="video-details">
+                                                        <div class="video-title"><?php echo htmlspecialchars($row['title']); ?>
+                                                        </div>
+                                                        <div class="video-info">
+                                                            <?php echo htmlspecialchars($row['views'] ?? '0'); ?> views /
+                                                            <?php echo htmlspecialchars($row['duration'] ?? '0'); ?> mins
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endwhile; ?>

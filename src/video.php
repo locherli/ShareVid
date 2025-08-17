@@ -115,9 +115,8 @@ $simi_result = mysqli_query($con, $simi_query);
                             <tr>
                                 <div class="title-container">
                                     <!-- Profile Picture MUST be on the left-hand side to the video title and creator information -->
-                                    <img src="/usergen/img/pfp/<?php echo htmlspecialchars($vid_data['user_id']); ?>.png" width="72px" height="72px" alt="Profile Picture">
                                     <h1 class="table_title"><?php echo htmlspecialchars($vid_data['title']); ?></h1><br>
-                                    <p>by, <?php echo htmlspecialchars($vid_data['username']); ?> - (SUBCOUNT) subscribers <button>Subscribe</button></p>
+                                    <p>by, <?php echo htmlspecialchars($vid_data['username']); ?> - (SUBCOUNT) subscribers</p>
                                 </div>
                             </tr>
                         </thead>

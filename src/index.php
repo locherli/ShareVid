@@ -25,7 +25,7 @@ $currentDateTime = date('Y-m-d H:i:s');
 $videoQuery = "
     SELECT 
         videos.id,
-	videos.title, 
+	      videos.title, 
         videos.filepath, 
         videos.thumbnailpath, 
         videos.creationdate, 
@@ -136,7 +136,7 @@ $topvidresult = $con->query($queryTopVideos);
                 </div>
               </tr>
             </thead>
-            <<tbody>
+            <tbody>
               <tr>
                 <!-- TODO: Make a basic algorithm for recommended videos-->
                 <td>
@@ -164,82 +164,82 @@ $topvidresult = $con->query($queryTopVideos);
                   <?php endif; ?>
                 </td>
               </tr>
-    </tbody>
-    <table class="TopStatusArea">
-      <thead>
-        <tr>
-          <div class="title-container">
-            <img src="images/icon_newvideos.png" height="24px" width="24px">
-            <h1 class="table_title">Newest Videos</h1>
-          </div>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <!-- this should perferably be updated every 25 mins to save stuff like updating time. -->
-          <td>
-            <?php if ($result->num_rows > 0): ?>
-              <?php while ($row = $result->fetch_assoc()): ?>
-                <div class="video-container">
-                  <div class="video-thumbnail">
-                    <img class="video-thumbnail-image" src="<?php echo htmlspecialchars($row['thumbnailpath']); ?>"
-                      alt="Thumbnail">
+            </tbody>
+            <table class="TopStatusArea">
+              <thead>
+                <tr>
+                  <div class="title-container">
+                    <img src="images/icon_newvideos.png" height="24px" width="24px">
+                    <h1 class="table_title">Newest Videos</h1>
                   </div>
-                  <div class="video-title"><a
-                      href="video.php?id=<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['title']); ?></a>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!-- this should perferably be updated every 25 mins to save stuff like updating time. -->
+                  <td>
+                    <?php if ($result->num_rows > 0): ?>
+                      <?php while ($row = $result->fetch_assoc()): ?>
+                        <div class="video-container">
+                          <div class="video-thumbnail">
+                            <img class="video-thumbnail-image" src="<?php echo htmlspecialchars($row['thumbnailpath']); ?>"
+                              alt="Thumbnail">
+                          </div>
+                          <div class="video-title"><a
+                              href="video.php?id=<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['title']); ?></a>
+                          </div>
+                          <div class="video-info">
+                            by: <?php echo htmlspecialchars($row['username']); ?> /
+                            <?php echo htmlspecialchars($row['vidlength']); ?> mins /
+                            <?php echo htmlspecialchars($row['views']); ?> views
+                          </div>
+                        </div>
+                      <?php endwhile; ?>
+                    <?php else: ?>
+                      <p>No videos found. Maybe try <a href="index.php">refreshing</a> or searching?</p>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="TopStatusArea">
+              <thead>
+                <tr>
+                  <div class="title-container">
+                    <img src="images/icon_topvideo.png" height="24px" width="24px">
+                    <h1 class="table_title">Top Videos this Week</h1>
                   </div>
-                  <div class="video-info">
-                    by: <?php echo htmlspecialchars($row['username']); ?> /
-                    <?php echo htmlspecialchars($row['vidlength']); ?> mins /
-                    <?php echo htmlspecialchars($row['views']); ?> views
-                  </div>
-                </div>
-              <?php endwhile; ?>
-            <?php else: ?>
-              <p>No videos found. Maybe try <a href="index.php">refreshing</a> or searching?</p>
-            <?php endif; ?>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table class="TopStatusArea">
-      <thead>
-        <tr>
-          <div class="title-container">
-            <img src="images/icon_topvideo.png" height="24px" width="24px">
-            <h1 class="table_title">Top Videos this Week</h1>
-          </div>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <?php if ($topvidresult->num_rows > 0): ?>
-              <?php while ($row = $topvidresult->fetch_assoc()): ?>
-                <div class="video-container">
-                  <div class="video-thumbnail">
-                    <img class="video-thumbnail-image" src="<?php echo htmlspecialchars($row['thumbnailpath']); ?>"
-                      alt="Thumbnail">
-                  </div>
-                  <div class="video-title"><a
-                      href="video.php?id=<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['title']); ?></a>
-                  </div>
-                  <div class="video-info">
-                    by: <?php echo htmlspecialchars($row['username']); ?> /
-                    <?php echo htmlspecialchars($row['vidlength']); ?> mins /
-                    <?php echo htmlspecialchars($row['views']); ?> views
-                  </div>
-                </div>
-              <?php endwhile; ?>
-            <?php else: ?>
-              <p>No videos found. Maybe try <a href="index.php">refreshing</a> or searching?</p>
-            <?php endif; ?>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    </td>
-    </tr>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <?php if ($topvidresult->num_rows > 0): ?>
+                      <?php while ($row = $topvidresult->fetch_assoc()): ?>
+                        <div class="video-container">
+                          <div class="video-thumbnail">
+                            <img class="video-thumbnail-image" src="<?php echo htmlspecialchars($row['thumbnailpath']); ?>"
+                              alt="Thumbnail">
+                          </div>
+                          <div class="video-title"><a
+                              href="video.php?id=<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['title']); ?></a>
+                          </div>
+                          <div class="video-info">
+                            by: <?php echo htmlspecialchars($row['username']); ?> /
+                            <?php echo htmlspecialchars($row['vidlength']); ?> mins /
+                            <?php echo htmlspecialchars($row['views']); ?> views
+                          </div>
+                        </div>
+                      <?php endwhile; ?>
+                    <?php else: ?>
+                      <p>No videos found. Maybe try <a href="index.php">refreshing</a> or searching?</p>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </td>
+      </tr>
   </table>
   <table class="UpdatesSect">
     <!-- Footer -->

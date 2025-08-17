@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $upload_ok = false;
         }
 
-        if ($_FILES['profile_picture']['size'] > 5000000) {
+        if ($_FILES['profile_picture']['size'] > 15000000) {
             echo "Error submiting. Cause? File is over 5MB.";
             $upload_ok = false;
         }

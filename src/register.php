@@ -22,40 +22,47 @@ if (isset($_SESSION['username'])) {
     exit();
 }
 
-/* Login control stuff */
+/* Registration control stuff */
 if(isset($_POST['username'])){
     $username = stripslashes($_REQUEST['username']);    // Removes backslashes.
-    /* Escape any special character in a string. */
     $username = mysqli_real_escape_string($con, $username);
 
-    /* ...and now do the same for the password */
     $password = stripslashes($_REQUEST['password']);    // Removes backslashes.
     $password = mysqli_real_escape_string($con, $password);
 
-    /* Make sure that the user doesnt exist so that no double registers occur */
-    $query = "SELECT * FROM `users` WHERE username='$username'";
+    $email = stripslashes($_REQUEST['email']);          // Removes backslashes.
+    $email = mysqli_real_escape_string($con, $email);
+
+    /* Check if username or email already exists */
+    $query = "SELECT * FROM `users` WHERE username='$username' OR email='$email'";
     $result = mysqli_query($con, $query) or die(mysqli_error($con));
 
-
-    /* and now register */
     $rows = mysqli_num_rows($result);
     if($rows == 0){
-            $result = $con->query("SELECT MAX(id) AS max_id FROM users");
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $maxid = (int)$row['max_id'];
-            }
-            else $maxid=0;
-            $userID=$maxid+1;
-            $query="INSERT INTO users (id, username, password) VALUES ('$userID', '$username', '".md5($password)."')";
-            mysqli_query($con, $query) or die(mysqli_error($con));
+        // Get next available ID
+        $result = $con->query("SELECT MAX(id) AS max_id FROM users");
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $maxid = (int)$row['max_id'];
+        } else {
+            $maxid = 0;
+        }
+        $userID = $maxid + 1;
+        
+        // Insert new user with email
+        $query = "INSERT INTO users (id, username, password, email) VALUES ('$userID', '$username', '".md5($password)."', '$email')";
+        $insert_result = mysqli_query($con, $query) or die(mysqli_error($con));
+        
+        if($insert_result) {
             header("Location: index.php");  
             exit();
+        } else {
+            echo "<p>Error during registration. Please try again.</p>";
+        }
+    } else {
+        echo "<p>Username or email already exists. Please choose another.</p>";
     }
-    else{
-        echo "<p>Invaild register info.</p>";
-    }
-}else{
+} else {
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,7 +75,7 @@ if(isset($_POST['username'])){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <!-- Header and Navagation control -->
+        <!-- Header and Navigation control -->
         <table class="PineconiumLogoSector">
           <thead>
             <tr>
@@ -94,7 +101,7 @@ if(isset($_POST['username'])){
               </td>
             </tr>
           </tbody>
-          </table>
+        </table>
 
         <!-- Main Layout-->
         <table class="PineconiumTabNav">
@@ -102,23 +109,26 @@ if(isset($_POST['username'])){
             <tr>
               <td>
                 <h1 class="loginpage_title">Register to Open...</h1>
-                <p class="loginpage_text">Register in here to create a Open account. Already have one? Why not Login?</p>
-                <form name="login" action="" method="post">
+                <p class="loginpage_text">Register in here to create an Open account. Already have one? <a href="login.php">Login instead</a></p>
+                <form name="registration" action="" method="post">
                   <input type="text" name="username" placeholder="Username" required />
+                  <input type="email" name="email" placeholder="Email Address" required />
                   <input type="password" name="password" placeholder="Password" required />
                   <input type="submit" name="submit" value="Register" />
               </form>
               </td>
             </tr>
-          </table>
-          <table class="UpdatesSect">
-            <!-- Footer -->
-            <tfoot>
-              <tr>
-                  <td><p class="footerText">&copy; Pineconium 2024. All rights reserved. Powered by OpenViHo version 10a</p></td>
-              </tr>
-              </tfoot>
-          </table>
+          </tbody>
+        </table>
+        
+        <table class="UpdatesSect">
+          <!-- Footer -->
+          <tfoot>
+            <tr>
+                <td><p class="footerText">&copy; Pineconium 2024. All rights reserved. Powered by OpenViHo version 10a</p></td>
+            </tr>
+          </tfoot>
+        </table>
     </body>
 </html>
 <?php } ?>

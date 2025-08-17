@@ -1,6 +1,8 @@
 # How to host a *shareVid* site
 NOTE: This tutorial was originally designed for server computers running Linux and are being hosted via Apache. Depending on what you will use to host shareVid, you may need to do different things to get it to work.
 
+Preview of this project: https://vhost.locherli.my
+
 ## 1. Hardware
 To start running an shareVid-powered video hosting site, you'll need the following:
 1. Any Server Computer with these minimum specs.

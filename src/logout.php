@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	session_destroy();		// <-- This "kills" the user, making them logout.
-	header('index.php');    // <-- And send them to the afterlife, better known as the main page.
-	exit();
+session_start();
+session_destroy();        // 销毁会话
+header('Location: index.php');    // 修正：需要添加"Location:"前缀
+exit();
 ?>
