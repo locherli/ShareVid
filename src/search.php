@@ -70,15 +70,6 @@ $result = $stmt->get_result();
         <?php while ($row = $result->fetch_assoc()): ?>
 
 
-            <div class="video-item">
-                <h3><a href="video.php?id=<?= $row['id'] ?>"><?= htmlspecialchars($row['title']) ?></a></h3>
-                <img src="<?= htmlspecialchars($row['thumbnailpath']) ?>" alt="Thumbnail" class="thumbnail">
-                <p>Uploader: <?= htmlspecialchars($row['username']) ?></p>
-                <p>Views: <?= $row['views'] ?> | Length: <?= gmdate("i:s", $row['vidlength']) ?></p>
-            </div>
-
-
-
             <table class="PineconiumTabNav">
                 <tbody>
                     <tr>
