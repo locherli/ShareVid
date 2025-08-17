@@ -182,17 +182,7 @@ $isOwnProfile = isset($_SESSION['username']) && $usr_dat['username'] === $_SESSI
         </tbody>
     </table>
 
-    <table class="UpdatesSect">
-        <!-- Footer -->
-        <tfoot>
-            <tr>
-                <td>
-                    <p class="footerText">&copy; Pineconium 2024. All rights reserved. Powered by OpenViHo version 10a
-                    </p>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+
 </body>
 
 </html>

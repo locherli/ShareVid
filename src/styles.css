@@ -132,14 +132,6 @@ a.email:hover {
 	color: #888888;
 }
 
-a:link.footer,
-a:visited.footer {
-	color: #888888;
-}
-
-a:hover.footer {
-	color: #bbbbbb;
-}
 
 .poster_image {
 	text-indent: 25px;

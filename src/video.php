@@ -279,13 +279,6 @@ $simi_result = mysqli_query($con, $simi_query);
             </tr>
         </tbody>
     </table>
-    <table class="UpdatesSect">
-        <!-- Footer -->
-        <tfoot>
-            <tr>
-                <td><p class="footerText">&copy; Pineconium 2024. All rights reserved. Powered by OpenViHo version 10a</p></td>
-            </tr>
-        </tfoot>
-    </table>
+
 </body>
 </html>
