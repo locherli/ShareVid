@@ -1,3 +1,5 @@
+**其他语言版本: [English](README.md), [中文](README_zh.md).**
+
 # 如何托管一个 *shareVid* 网站
 **注意**：本教程最初是为运行 Linux 的服务器计算机设计，并通过 Apache 进行托管。根据您使用的托管方式，您可能需要执行不同的操作来使 shareVid 正常运行。
 
