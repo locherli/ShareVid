@@ -1,4 +1,8 @@
+**Read this in other languages: [English](README.md), [中文](README_zh.md).**
+
 # How to host a *shareVid* site
+Welcome to the shareVid video hosting project! This tutorial guides you through setting up your own video-sharing website, powered by shareVid, where users can upload, watch, and interact with videos through features like comments and likes. Designed for Linux servers using Apache, this step-by-step guide will help you configure the necessary hardware, software, and database to launch your platform. Whether you're building a private video hub or a public sharing site, this tutorial provides all the essentials to get started.
+
 NOTE: This tutorial was originally designed for server computers running Linux and are being hosted via Apache. Depending on what you will use to host shareVid, you may need to do different things to get it to work.
 
 Preview of this project: https://vhost.locherli.my
