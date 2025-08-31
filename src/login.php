@@ -35,7 +35,9 @@ if(isset($_POST['username'])){
                 <h1>STOP 201</h1>
                 <p>The Username or password provided is invalid. Click here to go back to the <a href='login.php'>login</a> page or <a href='register.php'>register now!</a></p></div>";
         }
-}else{
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -97,4 +99,4 @@ if(isset($_POST['username'])){
           </table>
     </body>
 </html>
-<?php } ?>
+

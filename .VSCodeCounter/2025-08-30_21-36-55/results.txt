@@ -1,0 +1,48 @@
+Date : 2025-08-30 21:36:55
+Directory : d:\Workspace\ShareVidHosting
+Total : 18 files,  2258 codes, 92 comments, 303 blanks, all 2653 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| PHP      |         12 |      1,408 |         59 |        157 |      1,624 |
+| PostCSS  |          1 |        638 |         22 |        124 |        784 |
+| Markdown |          3 |        127 |          0 |          8 |        135 |
+| HTML     |          1 |         81 |         11 |         13 |        105 |
+| Batch    |          1 |          4 |          0 |          1 |          5 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                           | files      | code       | comment    | blank      | total      |
++------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                              |         18 |      2,258 |         92 |        303 |      2,653 |
+| . (Files)                                      |          4 |        131 |          0 |          9 |        140 |
+| src                                            |         14 |      2,127 |         92 |        294 |      2,513 |
++------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                       | language | code       | comment    | blank      | total      |
++------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\Workspace\ShareVidHosting\README.md         | Markdown |         66 |          0 |          5 |         71 |
+| d:\Workspace\ShareVidHosting\RULES.md          | Markdown |         20 |          0 |          2 |         22 |
+| d:\Workspace\ShareVidHosting\TODO.md           | Markdown |         41 |          0 |          1 |         42 |
+| d:\Workspace\ShareVidHosting\push.bat          | Batch    |          4 |          0 |          1 |          5 |
+| d:\Workspace\ShareVidHosting\src\auth.php      | PHP      |          6 |          0 |          1 |          7 |
+| d:\Workspace\ShareVidHosting\src\comment.php   | PHP      |         31 |          4 |          5 |         40 |
+| d:\Workspace\ShareVidHosting\src\customize.php | PHP      |        137 |         10 |         23 |        170 |
+| d:\Workspace\ShareVidHosting\src\db.php        | PHP      |         11 |          7 |          4 |         22 |
+| d:\Workspace\ShareVidHosting\src\index.php     | PHP      |        363 |          6 |         32 |        401 |
+| d:\Workspace\ShareVidHosting\src\login.php     | PHP      |         82 |          7 |         14 |        103 |
+| d:\Workspace\ShareVidHosting\src\logout.php    | PHP      |          6 |          0 |          0 |          6 |
+| d:\Workspace\ShareVidHosting\src\profile.php   | PHP      |        166 |          7 |         13 |        186 |
+| d:\Workspace\ShareVidHosting\src\register.php  | PHP      |         99 |          4 |         12 |        115 |
+| d:\Workspace\ShareVidHosting\src\search.php    | PHP      |        112 |          3 |         17 |        132 |
+| d:\Workspace\ShareVidHosting\src\styles.css    | PostCSS  |        638 |         22 |        124 |        784 |
+| d:\Workspace\ShareVidHosting\src\tos.html      | HTML     |         81 |         11 |         13 |        105 |
+| d:\Workspace\ShareVidHosting\src\upload.php    | PHP      |        132 |          4 |         22 |        158 |
+| d:\Workspace\ShareVidHosting\src\video.php     | PHP      |        263 |          7 |         14 |        284 |
+| Total                                          |          |      2,258 |         92 |        303 |      2,653 |
++------------------------------------------------+----------+------------+------------+------------+------------+

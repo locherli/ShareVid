@@ -25,19 +25,26 @@ if (!isset($_SESSION['username'])) {
 require('db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    /* video data stuff */ 
-    
-    $title = stripslashes($_POST['title']);
+    /* video data stuff */
+
+    $title = isset($_POST['title']) ? stripslashes($_POST['title']) : '';
     $title = mysqli_real_escape_string($con, $title);
 
-    $description = stripslashes($_POST['description']);
+    $description = isset($_POST['description']) ? stripslashes($_POST['description']) : '';
     $description = mysqli_real_escape_string($con, $description);
 
+    if (!isset($_FILES['video']) || $_FILES['video']['error'] !== UPLOAD_ERR_OK) {
+        die("Video upload error.");
+    }
     $videoFileName = $_FILES['video']['name'];
     $videoFileTmpName = $_FILES['video']['tmp_name'];
 
-    $thumbnailFileName = $_FILES['thumbnail']['name'];
-    $thumbnailFileTmpName = $_FILES['thumbnail']['tmp_name'];
+if (!isset($_FILES['thumbnail']) || $_FILES['thumbnail']['error'] !== UPLOAD_ERR_OK) {
+    die("Thumbnail upload error.");
+}
+
+$thumbnailFileName = $_FILES['thumbnail']['name'];
+$thumbnailFileTmpName = $_FILES['thumbnail']['tmp_name'];
     $thumbnailFilePath = 'usergen/img/thumbnail/' . $thumbnailFileName;
     move_uploaded_file($thumbnailFileTmpName, $thumbnailFilePath);
 
@@ -63,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Open &#187; Upload</title>
     <!-- Styles and Favicon management-->
@@ -71,6 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <!-- Header and Navigation control -->
     <table class="PineconiumLogoSector">
@@ -90,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="nav-actions">
                             <input type="text" placeholder="Search Openly...">
                             <button>Search!</button>
-                            <?php if(isset($_SESSION['username'])): ?>
+                            <?php if (isset($_SESSION['username'])): ?>
                                 <a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
                                 <a href="logout.php">Logout</a>
                             <?php else: ?>
@@ -124,16 +133,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <form method="post" enctype="multipart/form-data">
                                         <h1 class="title">Title</h1>
                                         <input type="text" name="title" required>
-                                        
+
                                         <h1 class="title">Video</h1>
                                         <input type="file" name="video" accept="video/*" required>
-                                        
+
                                         <h1 class="title">Thumbnail</h1>
                                         <input type="file" name="thumbnail" accept="image/*" required>
-                                        
+
                                         <h1 class="title">Description</h1>
                                         <textarea name="description" required></textarea>
-                                        <br> 
+                                        <br>
                                         <button type="submit">Upload!</button>
                                     </form>
                                 </td>
@@ -145,4 +154,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </tbody>
     </table>
 </body>
+
 </html>
