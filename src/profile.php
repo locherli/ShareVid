@@ -85,8 +85,15 @@ $isOwnProfile = isset($_SESSION['username']) && $usr_dat['username'] === $_SESSI
                             <a href="tos.html">Terms of Service</a>
                         </div>
                         <div class="nav-actions">
-                            <input type="text" placeholder="Search Openly...">
-                            <button>Search!</button>
+
+
+                            <form action="search.php" method="GET">
+                                <input type="text" name="query" placeholder="Search title name..." required>
+                                <input type="hidden" name="user_id" value="<?php echo $userID; ?>">
+                                <button type="submit">Search!</button>
+                            </form>
+
+
                             <?php if (isset($_SESSION['username'])): ?>
                                 <a href="upload.php">Upload</a>
                                 <a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
@@ -139,9 +146,9 @@ $isOwnProfile = isset($_SESSION['username']) && $usr_dat['username'] === $_SESSI
                         </thead>
                         <tbody>
                             <?php if ($vid_result->num_rows > 0): ?>
-                                <?php while ($row = $vid_result->fetch_assoc()): ?>
-                                    <tr>
-                                        <td>
+                                <tr>
+                                    <td>
+                                        <?php while ($row = $vid_result->fetch_assoc()): ?>
                                             <a href="video.php?id=<?php echo $row['id']; ?>" class="video-container-link">
                                                 <div class="video-container">
                                                     <div class="video-thumbnail">
@@ -158,9 +165,9 @@ $isOwnProfile = isset($_SESSION['username']) && $usr_dat['username'] === $_SESSI
                                                     </div>
                                                 </div>
                                             </a>
-                                        </td>
-                                    </tr>
-                                <?php endwhile; ?>
+                                        <?php endwhile; ?>
+                                    </td>
+                                </tr>
                             <?php else: ?>
                                 <tr>
                                     <td>

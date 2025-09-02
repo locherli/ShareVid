@@ -110,7 +110,7 @@ $simi_result = mysqli_query($con, $simi_query);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Open &#187; <?php echo htmlspecialchars($vid_data['title']); ?></title>
+    <title>Open ? <?php echo htmlspecialchars($vid_data['title']); ?></title>
     <!-- Styles and Favicon management-->
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="images/logos/favicon.png">

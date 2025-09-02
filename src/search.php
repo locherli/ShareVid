@@ -4,13 +4,15 @@ include('db.php');
 
 // 获取查询关键字
 $query = isset($_GET['query']) ? trim($_GET['query']) : '';
+$user_id = isset($_GET['user_id']) ? trim($_GET['user_id']) : '';
 
 if (empty($query)) {
     die("Please enter a search term.");
 }
 
-// 防止 SQL 注入，使用预处理语句
-$stmt = $con->prepare("
+if (empty($user_id)) {
+    // 按标题搜索所有视频（不指定作者）
+    $stmt = $con->prepare("
     SELECT 
         videos.id,
         videos.title, 
@@ -28,10 +30,37 @@ $stmt = $con->prepare("
         videos.title LIKE ?
     ORDER BY 
         videos.creationdate DESC
-");
+    ");
 
-$searchTerm = '%' . $query . '%';
-$stmt->bind_param('s', $searchTerm);
+    $searchTerm = '%' . $query . '%';
+    $stmt->bind_param('s', $searchTerm);
+    
+} else {
+    // 按标题和作者ID同时搜索（指定特定作者的视频）
+    $stmt = $con->prepare("
+    SELECT 
+        videos.id,
+        videos.title, 
+        videos.filepath, 
+        videos.thumbnailpath, 
+        videos.creationdate, 
+        videos.vidlength,
+        videos.views,
+        users.username 
+    FROM 
+        videos 
+    INNER JOIN 
+        users ON videos.user_id = users.id 
+    WHERE 
+        videos.title LIKE ? AND videos.user_id = ?
+    ORDER BY 
+        videos.creationdate DESC
+    ");
+
+    $searchTerm = '%' . $query . '%';
+    $stmt->bind_param('si', $searchTerm, $user_id); // 注意这里是'si'，字符串和整数
+}
+
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -43,22 +72,7 @@ $result = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <title>Search Results for "<?= htmlspecialchars($query) ?>"</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
 
-        .video-item {
-            margin-bottom: 20px;
-        }
-
-        .thumbnail {
-            width: 120px;
-            height: 90px;
-            object-fit: cover;
-        }
-    </style>
     <link rel="stylesheet" href="styles.css">
 </head>
 

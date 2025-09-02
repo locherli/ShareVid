@@ -644,7 +644,9 @@ table.UpdatesSect tfoot td {
 }
 
 /* Form styling */
-form {}
+form {
+
+}
 
 form input[type="text"],
 form input[type="email"],
