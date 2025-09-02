@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <table class="PineconiumLogoSector">
         <thead>
             <tr>
-                <th><img src="images/header.gif"></th>
+                <th><img src="images/header.png"></th>
             </tr>
         </thead>
         <tbody>

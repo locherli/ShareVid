@@ -226,7 +226,7 @@ $simi_result = mysqli_query($con, $simi_query);
                                                             <?php while($similar = mysqli_fetch_assoc($simi_result)): ?>
                                                                 <div class="similar-video">
                                                                     <a href="video.php?id=<?php echo $similar['id']; ?>">
-                                                                        <img src="path_to_thumbnail/<?php echo htmlspecialchars($similar['thumbnailpath']); ?>" alt="Thumbnail">
+                                                                        <img src="<?php echo htmlspecialchars($similar['thumbnailpath']); ?>" alt="Thumbnail">
                                                                         <div><?php echo htmlspecialchars($similar['title']); ?></div>
                                                                     </a>
                                                                 </div>
