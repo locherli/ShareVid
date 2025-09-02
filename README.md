@@ -3,9 +3,9 @@ NOTE: This tutorial was originally designed for server computers running Linux a
 
 Preview of this project: 
 
-![display_1](.\display_1.jpeg)
+[![display_1](.\display_1.jpeg)](https://github.com/locherli/ShareVid/blob/master/display_1.jpeg)
 
-![display_2](.\display_2.jpeg)
+[![display_2](.\display_2.jpeg)](https://github.com/locherli/ShareVid/blob/master/display_2.jpeg)
 
 ## Making your SQL tables.
 First, create an SQL database, you can call it whatever you want. Now add these 2 tables to it, `users`, `comments`, `likes`, and `videos`, as well as their respective columns. Here is the cheatsheet for you:
