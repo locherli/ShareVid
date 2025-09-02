@@ -1,3 +1,0 @@
-Endpoint: a1t8.la1.idrivee2-99.com
-Access Key ID: q7KsvhlpHP7fS8YSiTVy
-Secret Access Key: E0ghlgy8BKQCMTYivrGDetl55MRwAbUtp7BYJogW

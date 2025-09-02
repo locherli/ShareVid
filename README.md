@@ -1,28 +1,13 @@
 # How to host a *shareVid* site
 NOTE: This tutorial was originally designed for server computers running Linux and are being hosted via Apache. Depending on what you will use to host shareVid, you may need to do different things to get it to work.
 
-Preview of this project: https://vhost.locherli.my
+Preview of this project: 
 
-## 1. Hardware
-To start running an shareVid-powered video hosting site, you'll need the following:
-1. Any Server Computer with these minimum specs.
-    - Storage: At least 1 hard drive with at least 1 TB of total disk space.
-    - RAM: 8 GB
-    - Operating System: Any OS designed for server use. (Recommended to use any Linux Server Distro)
-    - Networking: Ethernet or (if possible) Wireless.
-2. Any Client Computer. (This will be used to control the server computer).
-3. Any software for the following purposes:
-    - Website Server Hosting (such as Apache).
-    - PHP support.
-    - SSH or Remote Desktop (depending on your OS for the client and server computers).
-    - Website Database (usually in SQL).
-    - Any text editing program (like Nano, Neovim, or VSCode).
-    - And Website Security provider.
-4. A registered domain (if you want your site to be public).
-## 2. How to Start
-First, ensure both your server and client computers are on, and then log in to your server computer as root via your client PC. Make sure you have the `source.zip` folder on your client PC and extract it. You'll need to send all of the contents of the zip folder to your server PC and then move the contents to your server's hosting directory (such as `/var/www/html/` if you're using Apache on Linux). Once everything is moved to your server computer, ensure you can access it with a local host IP (any IP address starting with 192.168.0.*xx*).
+![display_1](.\display_1.jpeg)
 
-## 3. Making your SQL tables.
+![display_2](.\display_2.jpeg)
+
+## Making your SQL tables.
 First, create an SQL database, you can call it whatever you want. Now add these 2 tables to it, `users`, `comments`, `likes`, and `videos`, as well as their respective columns. Here is the cheatsheet for you:
 ```sql
 CREATE TABLE users (
