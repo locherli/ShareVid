@@ -74,9 +74,29 @@ $result = $stmt->get_result();
     <title>Search Results for "<?= htmlspecialchars($query) ?>"</title>
 
     <link rel="stylesheet" href="styles.css">
+
+    <script>
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light') {
+            document.documentElement.classList.add('light-mode');
+
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const isLightMode = body.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+        }
+    </script>
 </head>
 
 <body>
+
+    <div class="navbar">
+        <div class="nav-actions">
+            <button type="button" onclick="toggleTheme()">Toggle Theme</button>
+        </div>
+    </div>
 
     <h1>Search Results for "<?= htmlspecialchars($query) ?>"</h1>
 

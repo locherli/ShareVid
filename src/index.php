@@ -112,6 +112,20 @@ $RandomVidResult = $con->query($randomVideoQuery);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
+
+    <script>
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light') {
+            document.documentElement.classList.add('light-mode');
+
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const isLightMode = body.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+        }
+    </script>
 </head>
 
 <body>
@@ -131,6 +145,8 @@ $RandomVidResult = $con->query($randomVideoQuery);
               <a href="tos.html">Terms of Service</a>
             </div>
             <div class="nav-actions">
+              <button type="button" onclick="toggleTheme()">Toggle Theme</button>
+
               <form action="search.php" method="GET">
                 <input type="text" name="query" placeholder="Search title name..." required>
                 <button type="submit">Search!</button>

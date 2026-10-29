@@ -885,3 +885,216 @@ body .pagination {
 	display: flex;
 	justify-content: center;
 }
+/* Light Mode Styles */
+html.light-mode body {
+	background: #f0f0f0;
+	color: #333333;
+}
+
+html.light-mode body a:link,
+html.light-mode body a:visited {
+	color: #1565c0;
+}
+
+html.light-mode body a.email:link,
+html.light-mode body a.email:visited {
+	background: #e0e0e0;
+	border: 1px solid #cccccc;
+	color: #333333;
+}
+
+html.light-mode body a.email:hover {
+	background: #d0d0d0 !important;
+	border: 1px solid #1565c0 !important;
+}
+
+html.light-mode body .sub_header {
+	color: #444444;
+}
+
+html.light-mode body .title, html.light-mode body .title_sm {
+	color: #1565c0;
+}
+
+html.light-mode body .table_title, html.light-mode body .announce_title, html.light-mode body .loginpage_title {
+	color: #111111;
+}
+
+html.light-mode body .loginpage_text, html.light-mode body .content {
+	color: #444444;
+}
+
+html.light-mode body .footerText, html.light-mode body .content_foot {
+	color: #666666;
+}
+
+html.light-mode body .unimp {
+	color: #888888;
+}
+
+html.light-mode body .navbar {
+	background: rgba(255, 255, 255, 0.9);
+	border-bottom: 1px solid #cccccc;
+}
+
+html.light-mode body .nav-links a {
+	color: #333333;
+}
+
+html.light-mode body .nav-links a:hover {
+	background: rgba(21, 101, 192, 0.1);
+	color: #1565c0;
+}
+
+html.light-mode body .nav-actions a, html.light-mode body .nav-actions button {
+	color: #1565c0;
+	border: 1px solid #1565c0;
+}
+
+html.light-mode body .nav-actions a:hover, html.light-mode body .nav-actions button:hover {
+	background: #1565c0;
+	color: #ffffff;
+}
+
+html.light-mode body .nav-actions input[type="text"] {
+	background: #ffffff;
+	border: 1px solid #cccccc;
+	color: #333333;
+}
+
+html.light-mode body .video-container, html.light-mode body .creator-container, html.light-mode body div.gallery {
+	background: #ffffff;
+	color: #333333;
+	border: 1px solid #cccccc;
+}
+
+html.light-mode body .video-container:hover, html.light-mode body .creator-container:hover, html.light-mode body div.gallery:hover {
+	border-color: #1565c0;
+}
+
+html.light-mode body .video-title, html.light-mode body .creator-title {
+	color: #111111;
+}
+
+html.light-mode body .video-info {
+	color: #555555;
+}
+
+html.light-mode body div.desc {
+	color: #444444;
+}
+
+html.light-mode body table.PineconiumLogoSector {
+	background: rgba(255, 255, 255, 0.95);
+	color: #333333;
+}
+
+html.light-mode body table.PineconiumLogoSector tr:nth-child(even) {
+	background: rgba(240, 240, 240, 0.5);
+}
+
+html.light-mode body table.PineconiumLogoSector thead th {
+	background: rgba(230, 230, 230, 0.9);
+	color: #111111;
+}
+
+html.light-mode body table.TopStatusArea, html.light-mode body table.PineconiumTabNav, html.light-mode body table.UpdatesSect {
+	background: #ffffff;
+	border: 1px solid #cccccc;
+}
+
+html.light-mode body table.TopStatusArea td, html.light-mode body table.TopStatusArea th,
+html.light-mode body table.PineconiumTabNav td, html.light-mode body table.PineconiumTabNav th,
+html.light-mode body table.UpdatesSect td, html.light-mode body table.UpdatesSect th {
+	border: 1px solid #cccccc;
+}
+
+html.light-mode body table.TopStatusArea tbody td, html.light-mode body table.PineconiumTabNav tbody td, html.light-mode body table.UpdatesSect tbody td {
+	background: #fafafa;
+	color: #333333;
+}
+
+html.light-mode body table.TopStatusArea tr:nth-child(even), html.light-mode body table.PineconiumTabNav tr:nth-child(even), html.light-mode body table.UpdatesSect tr:nth-child(even) {
+	background: #f0f0f0;
+}
+
+html.light-mode body table.TopStatusArea thead th, html.light-mode body table.PineconiumTabNav thead th, html.light-mode body table.UpdatesSect thead th {
+	color: #ffffff;
+}
+
+html.light-mode body table.TopStatusArea thead th, html.light-mode body table.PineconiumTabNav thead th, html.light-mode body table.UpdatesSect thead th {
+	border-left: 2px solid #cccccc;
+}
+
+html.light-mode body table.TopStatusArea thead th:first-child, html.light-mode body table.PineconiumTabNav thead th:first-child, html.light-mode body table.UpdatesSect thead th:first-child {
+	border-left: none;
+}
+
+html.light-mode body form input[type="text"],
+html.light-mode body form input[type="email"],
+html.light-mode body form input[type="password"],
+html.light-mode body form textarea,
+html.light-mode body form select {
+	background: #ffffff;
+	border: 1px solid #cccccc;
+	color: #333333;
+}
+
+html.light-mode body form button[type="submit"],
+html.light-mode body form input[type="submit"] {
+	background: #e0e0e0;
+	color: #333333;
+}
+
+html.light-mode body form button[type="submit"]:hover,
+html.light-mode body form input[type="submit"]:hover {
+	background: #d0d0d0;
+}
+
+html.light-mode body table.TopStatusArea tbody td .similar-video {
+	background: #ffffff !important;
+	color: #333333;
+	border: 1px solid #cccccc;
+}
+
+html.light-mode body table.TopStatusArea tbody td .similar-video div {
+	color: #333333;
+}
+
+html.light-mode body .tabs {
+	background: rgba(255, 255, 255, 0.95);
+	border-bottom: 1px solid #cccccc;
+}
+
+html.light-mode body .tablinks {
+	color: #444444;
+}
+
+html.light-mode body .tablinks:hover {
+	background: rgba(21, 101, 192, 0.1);
+	color: #1565c0;
+}
+
+html.light-mode body .tablinks.active {
+	color: #1565c0;
+	border-bottom: 2px solid #1565c0;
+	background: rgba(21, 101, 192, 0.15);
+}
+
+html.light-mode body .tabcontent {
+	background: #ffffff;
+	border: 1px solid #cccccc;
+	border-top: none;
+}
+
+html.light-mode body .profile-info {
+	background: rgba(255, 255, 255, 0.9);
+}
+
+html.light-mode body .profile-username {
+	color: #111111;
+}
+
+html.light-mode body .profile-joined {
+	color: #555555;
+}

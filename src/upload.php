@@ -78,6 +78,20 @@ $thumbnailFileTmpName = $_FILES['thumbnail']['tmp_name'];
     <link rel="icon" type="image/x-icon" href="images/logos/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light') {
+            document.documentElement.classList.add('light-mode');
+
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const isLightMode = body.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+        }
+    </script>
 </head>
 
 <body>
@@ -97,6 +111,8 @@ $thumbnailFileTmpName = $_FILES['thumbnail']['tmp_name'];
                             <a href="tos.html">Terms of Service</a>
                         </div>
                         <div class="nav-actions">
+              <button type="button" onclick="toggleTheme()">Toggle Theme</button>
+
                             <input type="text" placeholder="Search Openly...">
                             <button>Search!</button>
                             <?php if (isset($_SESSION['username'])): ?>
